@@ -1,6 +1,8 @@
 import 'package:container_tab_indicator/container_tab_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:telegram_ui/constants.dart';
+import 'package:telegram_ui/screens/components/all_messages.dart';
+import 'package:telegram_ui/widgets/custom_drawer.dart';
 import 'package:telegram_ui/widgets/custom_tab.dart';
 
 class CustomNav extends StatelessWidget {
@@ -11,11 +13,19 @@ class CustomNav extends StatelessWidget {
     return DefaultTabController(
       length: 5,
       child: Scaffold(
-        drawer: const Drawer(),
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: telegramLightBlue,
+          onPressed: () {},
+          child: const Icon(
+            Icons.edit,
+            color: Colors.white,
+          ),
+        ),
+        drawer: const CustomDrawer(),
         appBar: AppBar(
           title: const Text('Telegram'),
           elevation: 0,
-          backgroundColor: telegramBlue,
+          backgroundColor: telegramDarkBlue,
           actions: [
             IconButton(
                 onPressed: () {},
@@ -27,7 +37,6 @@ class CustomNav extends StatelessWidget {
           bottom: const TabBar(
               isScrollable: true,
               indicatorSize: TabBarIndicatorSize.label,
-              // indicatorWeight: 5.0,
               indicator: ContainerTabIndicator(
                 height: 7,
                 color: Colors.white,
@@ -35,7 +44,6 @@ class CustomNav extends StatelessWidget {
                     topLeft: Radius.circular(4.0),
                     topRight: Radius.circular(4.0)),
                 padding: EdgeInsets.only(top: 23),
-                // borderWidth: 2.0,
                 borderColor: Colors.white,
               ),
               tabs: [
@@ -63,9 +71,7 @@ class CustomNav extends StatelessWidget {
         ),
         body: TabBarView(
           children: [
-            Scaffold(
-              backgroundColor: Colors.grey[200],
-            ),
+            const AllMessages(),
             Scaffold(
               backgroundColor: Colors.grey[200],
             ),

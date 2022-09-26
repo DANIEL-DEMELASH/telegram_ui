@@ -31,7 +31,7 @@ class CustomTab extends StatelessWidget {
                   borderRadius: BorderRadius.all(Radius.circular(15.0))),
               child: Text(
                 '$num',
-                style: const TextStyle(color: telegramBlue, fontSize: 12.0),
+                style: const TextStyle(color: telegramDarkBlue, fontSize: 12.0),
               ),
             ),
             // )
